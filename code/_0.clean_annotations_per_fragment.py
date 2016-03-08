@@ -4,6 +4,7 @@ from collections import defaultdict
 
 output_file = '_0 1 Task_1_output.csv'
 
+#Indicators for when a video was not displayed correctly
 def video_played(no_event_text):
     no_event_text = no_event_text.lower()
     video_not_played_tags = [['restricted'],
@@ -37,7 +38,6 @@ def video_played(no_event_text):
 
 def create_worker_video_annotation_file(file_name):
 
-    fragment_annotation_counts = defaultdict(int)
     if '.csv' in file_name:
         file_name = file_name.replace('.csv', '')
     result_file = open(file_name+'.csv', 'r')
@@ -45,13 +45,15 @@ def create_worker_video_annotation_file(file_name):
     headers = csvData.next()
     video_url_id = headers.index('video_url')
     video_fragment_id = headers.index('fragment')
-
+    
+    #Get the correct column indexes for the useful information
     noevents_id = headers.index('noevents')
     expert_label_id = headers.index('expert_label')
     event_count_id = headers.index('eventcount')
     worker_id_id = headers.index('_worker_id')
     feedback_id = headers.index('feedback')
-
+    
+    #Up to 30 annotations are possible per line
     timerregex = 'ev\d{1,2}a'
     labelregex = 'eventlabel\d{1,2}'
     
@@ -66,7 +68,7 @@ def create_worker_video_annotation_file(file_name):
         if re.match(labelregex, header):
             idnr = re.findall('\d{1,2}', header)
             labelIds[idnr[0]] = i
-
+    
     worker_video_annotation_file = open('_0 2 worker_annotations_per_fragment.csv','w')
     worker_video_annotation_file.write('worker_id|video_url|fragment|expert_label|event_label\n')
     #video_not_played_file = open(file_name+'_Video_not_played.csv','w')
@@ -79,6 +81,7 @@ def create_worker_video_annotation_file(file_name):
         expert_label = row[expert_label_id]
         feedback = row[feedback_id]
         events = []
+        #In case the no_events checkbox was enabled, add NO_EVENT to the events labels
         if len(noevents) > 0:
             if not video_played(noevents):
                 #video_not_played_file.write(worker_id+'|'+video_url+'|'+video_fragment+'|'+noevents+'\n')
@@ -98,11 +101,6 @@ def create_worker_video_annotation_file(file_name):
             for ev in split_event:
                 ev = ev.strip()
                 worker_video_annotation_file.write(worker_id+'|'+video_url+'|'+video_fragment+'|'+expert_label+'|'+ev+'\n')
-                fragment_annotation_counts[video_url+'|'+video_fragment+'|'+worker_id] += 1
-    fragmentcounts = open('worker_video_fragment_annotation_counts_new.csv', 'w')
-    for f in fragment_annotation_counts:
-        fragmentcounts.write(f+'|'+str(fragment_annotation_counts[f])+'\n')
-    fragmentcounts.close()
     #video_not_played_file.close()
     worker_video_annotation_file.close()
     return '_0 2 worker_annotations_per_fragment.csv'
