@@ -11,7 +11,6 @@ Gathering annotated data for machine learning applications can be very time cons
 This repository contains all the data and code that was used to annotate consumer videos from CCV aswell as all features and labels used during training and testing of the classifiers. We distinguish two different folders 'Code' and 'Data'. The folder 'Code' contains all python files used to compute Unit-Label Scores for each video using the crowdsourcing task output. The 'Data' folder contains the input and output files from all crowdsourcing tasks together with all output files produced by the python files from 'Code'.
 
 The data and results produced by this research have been achieved by following the following steps:
-### 1.
-Gather annotations about anything happening in a video using the **[Task1 input file](https://github.com/CrowdTruth/Events-in-videos/blob/master/Data/Task-1/_0_Task_1_input.csv)**, using batches with a maximum size of 30 videos. 
+ 1. Gather annotations about anything happening in a video using the **[Task1 input file](https://github.com/CrowdTruth/Events-in-videos/blob/master/Data/Task-1/_0_Task_1_input.csv)**, using batches with a maximum size of 30 videos. 
 
  
