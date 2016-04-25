@@ -12,6 +12,11 @@ Gathering annotated data for machine learning applications can be very time cons
 ### Task 2: To which categories does this label belong?
 ![Fig.2: Task 2.](https://raw.githubusercontent.com/CrowdTruth/Events-in-videos/master/img/task2.png)
 
+| Task     | Workers/Unit     | Payment/Unit     |
+|----------|:----------------:|:----------------:|
+| Task 1   | 15               | $0.02            |
+| Task 2   | 15               | $0.002           |
+
 ## Dataset files 
 
 This repository contains all the data and code that was used to annotate consumer videos from CCV aswell as all features and labels used during training and testing of the classifiers. We distinguish two different folders 'Code' and 'Data'. The folder 'Code' contains all python files used to compute Unit-Label scores for each video using the crowdsourcing task output. The 'Data' folder contains the input and output files from all crowdsourcing tasks together with all output files produced by the python files from 'Code'.
@@ -27,7 +32,20 @@ The data and results produced by this research have been achieved by following t
 **\*\*Note that during the original research, at first only 380 videos were annotated, and additional resources were aquired in a later stage to annotate another 516 videos. Therefore, different event labels were selected to use during task 2, since the latter 516 videos had to use the same high-level event labels in task 2 as the first 380 videos. The files that were used during the original research are included in the 'Data' folder, identified by 'ACTUALUSED' in their name.**
  
 The datasets used to train and test our Support Vector Machines can be found at **[Data/Datasets](https://github.com/CrowdTruth/Events-in-videos/tree/master/Data/Datasets)**, where each combination of train and test set contains:
-* Features
+* Features of train and test set
 * Test set labels:
- * CCV
- * CT@t (containing Unit-Label Scores, with the value -1 for videos that were not used in during annotation gathering)
+ * CCV 
+ * CT@t 
+* Train set labels:
+ * CCV 
+ * CCVeq
+ * CT@t
+ * CTmv
+* Video ids of train and test set 
+ 
+CCV labels are the original labels from **[Columbia Consumer Video (CCV) Database](http://www.ee.columbia.edu/ln/dvmm/CCV/)**.
+CCVeq labels are the original CCV labels, where some positive labels are set to negative to match the number of positive labels for each event used in the CT@t label set with a threshold of 0.86.
+CT@t labels are the Unit-Label Scores, with the value -1 for videos that were not used in during annotation gathering.
+CTmv labels are the event labels calculated Majority Voting over the annotations gathered via CrowdTruth.
+
+
