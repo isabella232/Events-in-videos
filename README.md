@@ -6,5 +6,12 @@ Gathering annotated data for machine learning applications can be very time cons
 
 *Universiteit van Amsterdam*
 
+## Dataset files 
 
-This repository contains all the data and code that was used to annotate consumer videos from CCV aswell as all features and labels used during training and testing of the classifiers.
+This repository contains all the data and code that was used to annotate consumer videos from CCV aswell as all features and labels used during training and testing of the classifiers. We distinguish two different folders 'Code' and 'Data'. The folder 'Code' contains all python files used to compute Unit-Label Scores for each video using the crowdsourcing task output. The 'Data' folder contains the input and output files from all crowdsourcing tasks together with all output files produced by the python files from 'Code'.
+
+To reproduce the 
+```
+|-Data/Task-1
+```
+ 
