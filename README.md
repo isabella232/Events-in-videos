@@ -7,8 +7,9 @@ Gathering annotated data for machine learning applications can be very time cons
 *Universiteit van Amsterdam*
 
 ## Crowdsourcing tasks used
+### Task 1: Annotate anything happening in the video
 ![Fig.1: Task 1.](https://raw.githubusercontent.com/CrowdTruth/Events-in-videos/master/img/task1.png)
-
+### Task 2: To which categories does this label belong?
 ![Fig.2: Task 2.](https://raw.githubusercontent.com/CrowdTruth/Events-in-videos/master/img/task2.png)
 
 ## Dataset files 
