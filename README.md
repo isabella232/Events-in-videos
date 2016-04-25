@@ -26,3 +26,8 @@ The data and results produced by this research have been achieved by following t
 
 **\*\*Note that during the original research, at first only 380 videos were annotated, and additional resources were aquired in a later stage to annotate another 516 videos. Therefore, different event labels were selected to use during task 2, since the latter 516 videos had to use the same high-level event labels in task 2 as the first 380 videos. The files that were used during the original research are included in the 'Data' folder, identified by 'ACTUALUSED' in their name.**
  
+The datasets used to train and test our Support Vector Machines can be found at **[Data/Datasets](https://github.com/CrowdTruth/Events-in-videos/tree/master/Data/Datasets)**, where each combination of train and test set contains:
+* Features
+* Test set labels:
+** CCV
+** CT@t (containing Unit-Label Scores, with the value -1 for videos that were not used in during annotation gathering)
