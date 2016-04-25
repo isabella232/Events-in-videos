@@ -51,4 +51,6 @@ CT@t labels are the Unit-Label Scores, with the value -1 for videos that were no
 
 CTmv labels are the event labels calculated Majority Voting over the annotations gathered via CrowdTruth.
 
+## Multimedia event detection 
 
+The feature sets together with the label sets were used to train a Support Vector Machine and a Weighted Support Vector Machine for event detection. For this, **[LIBSVM -- A Library for Support Vector Machines](https://www.csie.ntu.edu.tw/~cjlin/libsvm/)** was used. 
