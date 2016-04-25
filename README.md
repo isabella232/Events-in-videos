@@ -44,8 +44,11 @@ The datasets used to train and test our Support Vector Machines can be found at 
 * Video ids of train and test set 
  
 CCV labels are the original labels from **[Columbia Consumer Video (CCV) Database](http://www.ee.columbia.edu/ln/dvmm/CCV/)**.
+
 CCVeq labels are the original CCV labels, where some positive labels are set to negative to match the number of positive labels for each event used in the CT@t label set with a threshold of 0.86.
+
 CT@t labels are the Unit-Label Scores, with the value -1 for videos that were not used in during annotation gathering.
+
 CTmv labels are the event labels calculated Majority Voting over the annotations gathered via CrowdTruth.
 
 
